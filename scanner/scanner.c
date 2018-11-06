@@ -22,6 +22,22 @@ Tokens check_keywords(char* str1){
 	}
 	return IDNETIFIER;
 }
+Tokens check_sympols(char c){
+	switch(c){
+			case '+' : return PLUS;
+			case '-' : return MINUS;
+			case '*' : return MULT;
+			case '/' : return DIV;
+			case '=' : return EQUAL;
+			case '<' : return STHAN;
+			case '>' : return LTHAN;
+			case '(' : return LPARA;
+			case ')' : return RPARA;
+			case ';' : return SCOLON;
+
+			}
+	return ERROR;
+}
 
 TOKES table[]={
 #define TOKENS(name,_a,_b) {_a,name,_b},
@@ -79,19 +95,9 @@ while((current_state!=DONE)){
 		else if(ch==EOF){current_state=DONE;accepted_token=FILEEND;}
 		else
 		{current_state=DONE;
-		switch(ch){
-		case '+' : accepted_token =PLUS;
-		case '-' : accepted_token =MINUS;
-		case '*' : accepted_token =MULT;
-		case '/' : accepted_token =DIV;
-		case '=' : accepted_token =EQUAL;
-		case '<' : accepted_token =STHAN;
-		case '>' : accepted_token =LTHAN;
-		case '(' : accepted_token =LPARA;
-		case ')' : accepted_token =RPARA;
-		case ';' : accepted_token =SCOLON;
+		accepted_token=check_sympols(ch);
 
-		}
+
 		}
 	break;
 ////////////////////////////////////////////////////////////////////////////////

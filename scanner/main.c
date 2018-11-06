@@ -13,7 +13,8 @@ int main(int argc, char *argv[])
 	file_ptr=fopen(file_path,"r");
 	Tokens t = get_token();
 	while(t!=FILEEND){
-		printf("%s>>>>>>>%s\n",table[t].str,table[t].type);
+		printf("%39s\n", "----------------------------------------");
+		printf("|  %-10s  |  %20s | \n",table[t].str,table[t].type);
 		t = get_token();
 	}
 	return 0;
