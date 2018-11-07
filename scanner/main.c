@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 	char file_path[200];
 	int path_size=200;
 	fgets(file_path,path_size,stdin);
+
 	file_path[strlen(file_path)-1]='\0';
 
 	file_ptr=fopen(file_path,"r");
@@ -19,14 +20,16 @@ int main(int argc, char *argv[])
 		file_ptr=fopen(file_path,"r");
 	}
 
+	FILE * l=fopen("Lexoutput.txt","w");
 	Tokens t = get_token();
-
 	while(t!=FILEEND){
-		printf("%39s\n", "----------------------------------------");
-		printf("|  %-10s  |  %20s | \n",table[t].str,table[t].type);
+		fprintf(l,"%39s\n","----------------------------------------");
+		fprintf(l,"|  %-10s  |  %20s | \n",table[t].str,table[t].type);
 		t = get_token();
 
 	}
+	fclose(l);
+	fclose(file_ptr);
 	getchar();
 	return 0;
 }

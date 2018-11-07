@@ -73,7 +73,7 @@ void put_back(){
 }
 
 Tokens get_token(){
-char string_token[20];
+char string_token[8];
 Tokens accepted_token;
 int index =0 ;
 States current_state = START;
