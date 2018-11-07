@@ -73,7 +73,7 @@ void put_back(){
 }
 
 Tokens get_token(){
-char string_token[8];
+char string_token[20];
 Tokens accepted_token;
 int index =0 ;
 States current_state = START;
@@ -151,11 +151,11 @@ while((current_state!=DONE)){
 		if(accepted_token == IDNETIFIER){
 			accepted_token=check_keywords(string_token);
 			if(strcmp(table[accepted_token].type,"keyword")!=0){
-				table[accepted_token].str=string_token;
+				strcpy(table[accepted_token].str,string_token);
 						}
 		}
 		else if (accepted_token == NUMBER ){
-			table[NUMBER].str=string_token;
+			strcpy(table[NUMBER].str,string_token);
 		}
 
 	}

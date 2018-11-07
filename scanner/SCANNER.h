@@ -59,7 +59,7 @@ typedef	enum
 	#undef TOKENS_KEYWORD
 	#undef TOKENS
 }Tokens;
-typedef struct{char* str;Tokens val ;char* type;}TOKES;
+typedef struct{char str[20];Tokens val ;char type[20];}TOKES;
 extern TOKES keywords[] ;
 extern TOKES table[]   ;
 extern FILE *file_ptr ;
