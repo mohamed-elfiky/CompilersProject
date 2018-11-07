@@ -7,10 +7,11 @@
 
 #ifndef SCANNER_H_
 #define SCANNER_H_
-
+#include <errno.h>
 #include<stdio.h>
 #include<string.h>
 #include <ctype.h>
+#include <stdlib.h>
 #define buffer_size 256
 #define keywords_num 8
 
@@ -62,5 +63,9 @@ typedef struct{char* str;Tokens val ;char* type;}TOKES;
 extern TOKES keywords[] ;
 extern TOKES table[]   ;
 extern FILE *file_ptr ;
+Tokens check_sympols(char c);
+Tokens check_keywords(char* str1);
+char look_up();
+Tokens get_token();
 
 #endif /* SCANNER_H_ */
